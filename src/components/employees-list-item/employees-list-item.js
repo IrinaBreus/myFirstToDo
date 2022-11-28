@@ -18,8 +18,8 @@ const EmployeesListItem = ({name, salary, increase, risen, onToggle}) => {
             <input type="text" className="empl" defaultValue={`${salary}$`}/>
             <div className="btns">
                 <button className="btn-icon"
-                        data-toggle="increase"
-                        onClick={onToggle}        
+                        data-toggle="increase" 
+                        onClick={onToggle} 
                 >
                     <img src={cookie} alt="cookie"/>
                 </button>
