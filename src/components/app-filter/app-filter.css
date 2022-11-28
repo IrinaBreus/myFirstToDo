@@ -1,0 +1,28 @@
+.btn-group {
+    width: max-content;
+    background: white;
+    border-radius: 5px;
+}
+.btn {
+    padding: 12px 14px;
+    border: 1px solid white;
+    background: #425A7D;
+    color: white;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 22px;
+    box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.25);
+}
+
+.btn-left {
+    border-radius: 5px 0 0 5px;
+}
+
+.btn-right {
+    border-radius: 0 5px 5px 0;
+}
+
+.btn:active, .btn:hover {
+    background: white;
+    color: #000000;;
+}

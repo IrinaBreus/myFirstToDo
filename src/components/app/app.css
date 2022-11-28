@@ -1,0 +1,6 @@
+.app {
+    padding: 50px 200px;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 34px;
+}
