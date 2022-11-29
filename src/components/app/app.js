@@ -6,6 +6,7 @@ import AppFilter from '../app-filter/app-filter';
 import EmployeesList from '../employees-list/employees-list';
 import AddForm from '../add-form/add-form';
 import { useState } from 'react';
+import uuid from 'react-uuid';
 
 const App = () => {
 
@@ -17,6 +18,7 @@ const App = () => {
 
     const [empl, setEmpl] = useState(data);
 
+    
     const onToggle = (id, type) => {
         setEmpl(empl.map(elem => {
             if (elem.id === id) {
@@ -28,6 +30,18 @@ const App = () => {
 
     const onDelete = (id) => {
         setEmpl(empl.filter(elem => elem.id !== id));
+    }
+
+    const addItem = (name, salary) => {
+        let obj = {
+            id: uuid(),
+            name,
+            salary,
+            increase: false,
+            risen: false
+        }
+
+        setEmpl([...empl, obj]);
     }
 
     return (
@@ -42,7 +56,7 @@ const App = () => {
                 onToggle={onToggle}
                 onDelete={onDelete}
             />
-            <AddForm/>
+            <AddForm addItem={addItem}/>
         </div>
     )
 }

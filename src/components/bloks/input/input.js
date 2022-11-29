@@ -1,11 +1,12 @@
 import './input.css';
 
-const Input = ({placeholder}) => {
+const Input = ({placeholder, type='text'}) => {
     return (
         <input 
-            type="text"
+            type={type}
             className="input"
             placeholder={placeholder}
+
         />
     )
 }
