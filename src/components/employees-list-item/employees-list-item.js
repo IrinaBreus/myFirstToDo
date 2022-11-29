@@ -4,7 +4,7 @@ import star from './star.svg';
 import cookie from './cookie.svg';
 import trash from './trash.svg';
 
-const EmployeesListItem = ({name, salary, increase, risen, onToggle}) => {
+const EmployeesListItem = ({name, salary, increase, risen, onToggle, onDelete}) => {
 
     const classes = increase ? "list-item increase" : "list-item";
     const classStar = risen ? "star-icon show" : 'star-icon hidden'
@@ -23,7 +23,9 @@ const EmployeesListItem = ({name, salary, increase, risen, onToggle}) => {
                 >
                     <img src={cookie} alt="cookie"/>
                 </button>
-                <button className="btn-icon">
+                <button className="btn-icon"
+                        onClick={onDelete}
+                >
                     <img src={trash} alt="trash" />
                 </button>
                 <span className={classStar}>

@@ -11,7 +11,7 @@ const App = () => {
 
     const data = [
         {id: 1, name: 'John S.', salary: 800, increase: false, risen: false},
-        {id: 2, name: 'Alex K.', salary: 5000, increase: false, risen: true},
+        {id: 2, name: 'Alex K.', salary: 5000, increase: false, risen: false},
         {id: 3, name: 'Carl W.', salary: 3000, increase: false, risen: false}
     ]
 
@@ -26,6 +26,10 @@ const App = () => {
         }))
     }
 
+    const onDelete = (id) => {
+        setEmpl(empl.filter(elem => elem.id !== id));
+    }
+
     return (
         <div className='app'>
             <AppInfo/>
@@ -36,6 +40,7 @@ const App = () => {
             <EmployeesList 
                 data={empl} 
                 onToggle={onToggle}
+                onDelete={onDelete}
             />
             <AddForm/>
         </div>
