@@ -46,7 +46,7 @@ const App = () => {
 
     return (
         <div className='app'>
-            <AppInfo/>
+            <AppInfo data={empl}/>
             <Box color='blue'>
                 <SearchPanel/>
                 <AppFilter/>
