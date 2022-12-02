@@ -22,7 +22,7 @@
     border-radius: 0 5px 5px 0;
 }
 
-.btn:active, .btn:hover {
+.active, .btn:hover {
     background: white;
     color: #000000;;
 }

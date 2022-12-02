@@ -19,6 +19,7 @@ const App = () => {
     const [empl, setEmpl] = useState(data);
 
     const [term, setTerm] = useState('');
+    const [filter, setFilter] = useState('all');
 
     
     const onToggle = (id, type) => {
@@ -59,14 +60,29 @@ const App = () => {
         setTerm(term);
     }
 
-    const visibleData = searchEmpl(empl, term);
+    const filterPost = (items, filter) => {
+        switch (filter) {
+            case 'risen':
+                return items.filter(item => item.risen);
+            case 'moreThen1000' :
+                return items.filter(item => item.salary > 1000);
+            default :
+                return items;
+        }
+    }
+
+    const onFilter = (filter) => {
+        setFilter(filter);
+    }
+
+    const visibleData = filterPost(searchEmpl(empl, term), filter);
 
     return (
         <div className='app'>
             <AppInfo data={empl}/>
             <Box color='blue'>
                 <SearchPanel onUpdateSearch={onUpdateSearch}/>
-                <AppFilter/>
+                <AppFilter filter={filter} onFilter={onFilter}/>
             </Box>
             <EmployeesList 
                 data={visibleData} 
