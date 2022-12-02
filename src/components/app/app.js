@@ -18,6 +18,8 @@ const App = () => {
 
     const [empl, setEmpl] = useState(data);
 
+    const [term, setTerm] = useState('');
+
     
     const onToggle = (id, type) => {
         setEmpl(empl.map(elem => {
@@ -44,15 +46,30 @@ const App = () => {
         setEmpl([...empl, obj]);
     }
 
+    const searchEmpl = (items, str) => {
+        if (str.length === 0) {
+            return items;
+        }
+        return items.filter(item => {
+            return item.name.toLowerCase().indexOf(str.toLowerCase()) > - 1;
+        })
+    }
+
+    const onUpdateSearch = (term) => {
+        setTerm(term);
+    }
+
+    const visibleData = searchEmpl(empl, term);
+
     return (
         <div className='app'>
             <AppInfo data={empl}/>
             <Box color='blue'>
-                <SearchPanel/>
+                <SearchPanel onUpdateSearch={onUpdateSearch}/>
                 <AppFilter/>
             </Box>
             <EmployeesList 
-                data={empl} 
+                data={visibleData} 
                 onToggle={onToggle}
                 onDelete={onDelete}
             />

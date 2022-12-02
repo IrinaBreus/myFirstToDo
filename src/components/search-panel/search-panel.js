@@ -1,8 +1,10 @@
-import Input from "../bloks/input/input"
-
-const SearchPanel = () => {
+const SearchPanel = ({onUpdateSearch}) => {
     return (
-        <Input placeholder='Найти сотрудника' />
+        <input
+            className="input"
+            placeholder='Найти сотрудника' 
+            onChange={(e) => onUpdateSearch(e.target.value)}
+        />
     )
 }
 
