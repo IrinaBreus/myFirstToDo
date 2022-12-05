@@ -75,6 +75,15 @@ const App = () => {
         setFilter(filter);
     }
 
+    const onChangeSalary = (id, value) => {
+        setEmpl(empl.map(elem => {
+            if (elem.id === id) {
+                return {...elem, salary: value.replace(/\D/g, '')}
+            }
+            return elem;
+        }))
+    }
+
     const visibleData = filterPost(searchEmpl(empl, term), filter);
 
     return (
@@ -88,6 +97,7 @@ const App = () => {
                 data={visibleData} 
                 onToggle={onToggle}
                 onDelete={onDelete}
+                onChangeSalary={onChangeSalary}
             />
             <AddForm addItem={addItem}/>
         </div>

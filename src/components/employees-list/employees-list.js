@@ -2,7 +2,7 @@ import './employees-list.css';
 import Box from '../bloks/box/box';
 import EmployeesListItem from '../employees-list-item/employees-list-item';
 
-const EmployeesList = ({data, onToggle, onDelete}) => {
+const EmployeesList = ({data, onToggle, onDelete, onChangeSalary}) => {
     
     
     const lists = data.map(list => {
@@ -14,6 +14,7 @@ const EmployeesList = ({data, onToggle, onDelete}) => {
                 id={id}
                 onToggle={(e) => onToggle(id, e.currentTarget.getAttribute('data-toggle'))}
                 onDelete={() => onDelete(id)}
+                onChangeSalary={(e) => onChangeSalary(id, e.target.value)}
                 {...item}
             />
         )
